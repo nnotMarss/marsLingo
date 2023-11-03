@@ -1,11 +1,11 @@
     # <cmdInit>
 import colorama
 import os
-
-
+import random
+import time
 
 class mars:
-    # import langMars as Lang
+    import langMars as Lang
     Stream = print
     Collect = input
     def Clear():
@@ -17,10 +17,88 @@ class mars:
     class Setting:
         UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'r').read()
         FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "r").read()
-        
-    # class WriteSetting:
-    #     UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w')
-    #     FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "w")
+        QuizRight = open(".\\settingsMars.MCFG\\quizRight.ENT", "r").read()
+        QuizWrong = open(".\\settingsMars.MCFG\\quizWrong.ENT", "r").read()
+    
+    class Lingo:
+        class a:
+            Disp = "A"
+            Sound = "Fa"
+        class b:
+            Disp = "B"
+            Sound = "Fe"
+        class c:
+            Disp = "C"
+            Sound = "Fu"
+        class d:
+            Disp = "D"
+            Sound = "Ja"
+        class e:
+            Disp = "E"
+            Sound = "Je"
+        class f:
+            Disp = "F"
+            Sound = "Ju"
+        class g:
+            Disp = "G"
+            Sound = "Ka"
+        class h:
+            Disp = "H"
+            Sound = "Ke"
+        class i:
+            Disp = "I"
+            Sound = "Ku"
+        class j:
+            Disp = "J"
+            Sound = "Na"
+        class k:
+            Disp = "K"
+            Sound = "Ne"
+        class l:
+            Disp = "L"
+            Sound = "Nu"
+        class m:
+            Disp = "M"
+            Sound = "Fa"
+        class n:
+            Disp = "N"
+            Sound = "Fa"
+        class o:
+            Disp = "O"
+            Sound = "Fa"
+        class p:
+            Disp = "P"
+            Sound = "Fa"
+        class q:
+            Disp = "Q"
+            Sound = "Fa"
+        class r:
+            Disp = "R"
+            Sound = "Fa"
+        class s:
+            Disp = "S"
+            Sound = "Fa"
+        class t:
+            Disp = "T"
+            Sound = "Fa"
+        class u:
+            Disp = "U"
+            Sound = "Fa"
+        class v:
+            Disp = "V"
+            Sound = "Fa"
+        class w:
+            Disp = "W"
+            Sound = "Fa"
+        class x:
+            Disp = "X"
+            Sound = "Fa"
+        class y:
+            Disp = "Y"
+            Sound = "Fa"
+        class z:
+            Disp = "Z"
+            Sound = "Fa"
     # </cmdInit>
 
     #<firstTimeSetup>
@@ -66,9 +144,107 @@ else:
     #</firstTimeSetup>
     #<preStartPhase>
 
-mars.Stream("[DEBUG INFO]:\n- firstTmUp.ENT: %s\n- usrLangSel1.ENT: %s" % (mars.Setting.FirstTime, mars.Setting.UserLang))
+mars.Stream("[DEBUG INFO]:\n- firstTmUp.ENT: %s\n- usrLangSel1.ENT: %s" % (mars.Setting.FirstTime, mars.Setting.UserLang)) #nice
 mars.Clear()
+    #<classEN>
+if mars.Setting.UserLang == "EN":
+    mars.Stream(" %s\n %s\n\n %s" % (mars.Lang.EN.StartSC.WelcMSG,mars.Lang.EN.StartSC.SubWelcMSG,mars.Lang.EN.StartSC.DscWelcMSG))
 
+selectorAwsNum = -1
+while True:
+    while True:
+        try:
+            selectorAws = int(mars.Collect("\n=> "))
+            # if selectorAws <= 4:
+            #     selectorAwsNum = selectorAws
+            #     break
+            if selectorAws == 1:
+                selectorAwsNum = selectorAws
+                break
+            elif selectorAws >= 2 and selectorAws <= 4:
+                mars.Clear()
+                mars.Stream(">> %s <<\n> %s" % (mars.Lang.EN.AlphaSC.AlphaMSG,mars.Lang.EN.SelectorSC.WrongAwsSub))
+            elif selectorAws > 4:
+                mars.Clear()
+                mars.Stream("> %s\n> %s" % (mars.Lang.EN.SelectorSC.WrongAws,mars.Lang.EN.SelectorSC.WrongAwsSub))
+            else:
+                mars.Clear()
+                mars.Stream("> %s\n> %s" % (mars.Lang.EN.SelectorSC.WrongAws,mars.Lang.EN.SelectorSC.WrongAwsSub))
+        except ValueError:
+            mars.Clear()
+            mars.Stream("> %s\n> %s" % (mars.Lang.EN.SelectorSC.WrongAwsValue,mars.Lang.EN.SelectorSC.WrongAwsSub))
+    mars.Clear()
+    if selectorAwsNum == 1:
+        mapedClass = {
+        1: mars.Lingo.a,
+        2: mars.Lingo.b,
+        3: mars.Lingo.c,
+        4: mars.Lingo.d,
+        5: mars.Lingo.e,
+        6: mars.Lingo.f,
+        7: mars.Lingo.g,
+        8: mars.Lingo.h,
+        9: mars.Lingo.i,
+        10: mars.Lingo.j,
+        11: mars.Lingo.k,
+        12: mars.Lingo.l,
+        13: mars.Lingo.m,
+        14: mars.Lingo.n,
+        15: mars.Lingo.o,
+        16: mars.Lingo.p,
+        17: mars.Lingo.q,
+        18: mars.Lingo.r,
+        19: mars.Lingo.s,
+        20: mars.Lingo.t,
+        21: mars.Lingo.u,
+        22: mars.Lingo.v,
+        23: mars.Lingo.w,
+        24: mars.Lingo.x,
+        25: mars.Lingo.y,
+        26: mars.Lingo.z}
+        while True:
+            try:
+                randIndex = random.randint(1,26)
+                selClass = mapedClass[randIndex]
+                # qRight = int(mars.Setting.QuizRight)
+                # qWrong = int(mars.Setting.QuizWrong)
+                mars.Stream("What sound does %s make?" % selClass.Disp)
+                charQuizAws = mars.Collect(" > ")
+                if charQuizAws.upper() == selClass.Sound.upper():
+                    mars.Stream("\n  %s" % (mars.Lang.EN.QuizSC.RightMSG % (selClass.Disp,selClass.Sound)))
+                    # with open(".\\settingsMars.MCFG\\quizRight.ENT", "w") as quizFileR:
+                    #     MathR = qRight + 1
+                    #     WriteToR = str(MathR) 
+                    #     quizFileR.write(WriteToR)
+                    time.sleep(3.2)
+                elif charQuizAws.upper() != selClass.Sound.upper():
+                    mars.Stream("\n  %s" (mars.Lang.EN.QuizSC.WrongMSG % (selClass.Disp,selClass.Sound)))
+                    # with open(".\\settingsMars.MCFG\\quizWrong.ENT", "w") as quizFileW:
+                    #     MathW = qWrong + 1
+                    #     WriteToW = str(MathW)
+                    #     quizFileW.write(WriteToW)
+                    #                                            Mars decided to leave these for later, possibly V1
+                    time.sleep(3.2)
+                else:
+                    mars.Stream("\n\n   GENERAL ERROR!! CFGRESTREQ#002")
+            except KeyboardInterrupt:
+                # print score here
+                # mars.Stream("--Results--\n You got:\n %s right awsers\n wrong awsers" % (mars.Setting.QuizRight,mars.Setting.QuizWrong))
+                mars.Stream("\n\n[Exiting Quiz]")
+                break
+    break
+
+
+
+    #</classEN>
+    #<classPL>
+if mars.Setting.UserLang == "PL":
+    mars.Stream(" %s" % (mars.Lang.PL.AlphaSC.AlphaMSG))
+    #</classPL>
+    #<classRU>
+if mars.Setting.UserLang == "RU":
+    mars.Stream(" %s" % (mars.Lang.RU.AlphaSC.AlphaMSG))
+    #</classRU>
 
 mars.Collect("<Exitted>")
 
