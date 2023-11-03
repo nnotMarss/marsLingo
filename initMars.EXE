@@ -1,0 +1,75 @@
+    # <cmdInit>
+import colorama
+import os
+
+
+
+class mars:
+    # import langMars as Lang
+    Stream = print
+    Collect = input
+    def Clear():
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+
+    class Setting:
+        UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'r').read()
+        FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "r").read()
+        
+    # class WriteSetting:
+    #     UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w')
+    #     FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "w")
+    # </cmdInit>
+
+    #<firstTimeSetup>
+if mars.Setting.FirstTime == "0" or mars.Setting.FirstTime == "":
+    mars.Stream(
+            "\n Welcome! / Witaj! /  Привет!\n Select a language below: / Wybierz język poniżej: / Выберите язык ниже:\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский\n"
+        )
+    while True:
+        ftsAwser = mars.Collect("=> ")
+        if ftsAwser.upper() == "EN":
+            with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
+                Lang.write("1")
+                Lang.close()
+            with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
+                ftSetup.write("EN")
+                ftSetup.close()
+            break
+        elif ftsAwser.upper() == "PL":
+            with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
+                Lang.write("1")
+                Lang.close()
+            with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
+                ftSetup.write("PL")
+                ftSetup.close()
+            break
+        elif ftsAwser.upper() == "RU":
+            with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
+                Lang.write("1")
+                Lang.close()
+            with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
+                ftSetup.write("RU")
+                ftSetup.close()
+            break
+        else:
+            mars.Clear()
+            mars.Stream("\n There's no \"%s\" option! / Nie ma opcji \"%s\"! / Нет \"%s\" варианта!\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский" % (ftsAwser, ftsAwser, ftsAwser))
+elif mars.Setting.FirstTime == "1":
+    pass
+else:
+    mars.Clear()
+    mars.Stream("\n\n   GENERAL ERROR!! CFGRESTREQ#001")
+    exit()
+    #</firstTimeSetup>
+    #<preStartPhase>
+
+mars.Stream("[DEBUG INFO]:\n- firstTmUp.ENT: %s\n- usrLangSel1.ENT: %s" % (mars.Setting.FirstTime, mars.Setting.UserLang))
+mars.Clear()
+
+
+mars.Collect("<Exitted>")
+
+    #</preStartPhase>
