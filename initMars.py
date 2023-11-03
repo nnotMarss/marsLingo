@@ -59,46 +59,46 @@ class mars:
             Sound = "Nu"
         class m:
             Disp = "M"
-            Sound = "Fa"
+            Sound = "Ra"
         class n:
             Disp = "N"
-            Sound = "Fa"
+            Sound = "Re"
         class o:
             Disp = "O"
-            Sound = "Fa"
+            Sound = "Ru"
         class p:
             Disp = "P"
-            Sound = "Fa"
+            Sound = "Sa"
         class q:
             Disp = "Q"
-            Sound = "Fa"
+            Sound = "Se"
         class r:
             Disp = "R"
-            Sound = "Fa"
+            Sound = "Su"
         class s:
             Disp = "S"
-            Sound = "Fa"
+            Sound = "Ta"
         class t:
             Disp = "T"
-            Sound = "Fa"
+            Sound = "Te"
         class u:
             Disp = "U"
-            Sound = "Fa"
+            Sound = "Tu"
         class v:
             Disp = "V"
-            Sound = "Fa"
+            Sound = "Za"
         class w:
             Disp = "W"
-            Sound = "Fa"
+            Sound = "Ze"
         class x:
             Disp = "X"
-            Sound = "Fa"
+            Sound = "Zu"
         class y:
             Disp = "Y"
-            Sound = "Fa"
+            Sound = "Ga"
         class z:
             Disp = "Z"
-            Sound = "Fa"
+            Sound = "Ge"
     # </cmdInit>
 
     #<firstTimeSetup>
@@ -218,7 +218,7 @@ while True:
                     #     quizFileR.write(WriteToR)
                     time.sleep(3.2)
                 elif charQuizAws.upper() != selClass.Sound.upper():
-                    mars.Stream("\n  %s" (mars.Lang.EN.QuizSC.WrongMSG % (selClass.Disp,selClass.Sound)))
+                    mars.Stream("\n  %s" % (mars.Lang.EN.QuizSC.WrongMSG % (selClass.Disp,selClass.Sound)))
                     # with open(".\\settingsMars.MCFG\\quizWrong.ENT", "w") as quizFileW:
                     #     MathW = qWrong + 1
                     #     WriteToW = str(MathW)
