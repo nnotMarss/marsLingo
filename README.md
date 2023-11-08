@@ -12,4 +12,6 @@ shhh don't tell anyone abt this project ;3
 UHM.. maybe?!?!?
 
 ---
+![Python Powered!](https://www.python.org/static/community_logos/python-powered-w-100x40.png)
+---
  **©️ marsLabs (Previously fuzLabs) 2023**
