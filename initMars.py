@@ -1,5 +1,4 @@
     # <cmdInit>
-import colorama
 import os
 import random
 import time
@@ -8,6 +7,13 @@ class mars:
     import langMars as Lang
     Stream = print
     Collect = input
+
+    def Install(module):
+        try:
+            import module
+        except ModuleNotFoundError:
+            os.system("py -m pip install %s" % module)
+
     def Clear():
         if os.name == "nt":
             os.system("cls")
@@ -15,97 +21,126 @@ class mars:
             os.system("clear")
 
     class Setting:
-        UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'r').read()
+        UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", "r").read()
         FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "r").read()
-        QuizRight = open(".\\settingsMars.MCFG\\quizRight.ENT", "r").read()
-        QuizWrong = open(".\\settingsMars.MCFG\\quizWrong.ENT", "r").read()
+        VerNum = open(".\\settingsMars.MCFG\\verNum.ENT", "r").read()
     
     class Lingo:
-        class a:
+        class LetterA:
             Disp = "A"
             Sound = "Fa"
-        class b:
+        class LetterB:
             Disp = "B"
             Sound = "Fe"
-        class c:
+        class LetterC:
             Disp = "C"
             Sound = "Fu"
-        class d:
+        class LetterD:
             Disp = "D"
             Sound = "Ja"
-        class e:
+        class LetterE:
             Disp = "E"
             Sound = "Je"
-        class f:
+        class LetterF:
             Disp = "F"
             Sound = "Ju"
-        class g:
+        class LetterG:
             Disp = "G"
             Sound = "Ka"
-        class h:
+        class LetterH:
             Disp = "H"
             Sound = "Ke"
-        class i:
+        class LetterI:
             Disp = "I"
             Sound = "Ku"
-        class j:
+        class LetterJ:
             Disp = "J"
             Sound = "Na"
-        class k:
+        class LetterK:
             Disp = "K"
             Sound = "Ne"
-        class l:
+        class LetterL:
             Disp = "L"
             Sound = "Nu"
-        class m:
+        class LetterM:
             Disp = "M"
             Sound = "Ra"
-        class n:
+        class LetterN:
             Disp = "N"
             Sound = "Re"
-        class o:
+        class LetterO:
             Disp = "O"
             Sound = "Ru"
-        class p:
+        class LetterP:
             Disp = "P"
             Sound = "Sa"
-        class q:
+        class LetterQ:
             Disp = "Q"
             Sound = "Se"
-        class r:
+        class LetterR:
             Disp = "R"
             Sound = "Su"
-        class s:
+        class LetterS:
             Disp = "S"
             Sound = "Ta"
-        class t:
+        class LetterT:
             Disp = "T"
             Sound = "Te"
-        class u:
+        class LetterU:
             Disp = "U"
             Sound = "Tu"
-        class v:
+        class LetterV:
             Disp = "V"
             Sound = "Za"
-        class w:
+        class LetterW:
             Disp = "W"
             Sound = "Ze"
-        class x:
+        class LetterX:
             Disp = "X"
             Sound = "Zu"
-        class y:
+        class LetterY:
             Disp = "Y"
             Sound = "Ga"
-        class z:
+        class LetterZ:
             Disp = "Z"
             Sound = "Ge"
+        Map = {
+        1: LetterA,
+        2: LetterB,
+        3: LetterC,
+        4: LetterD,
+        5: LetterE,
+        6: LetterF,
+        7: LetterG,
+        8: LetterH,
+        9: LetterI,
+        10: LetterJ,
+        11: LetterK,
+        12: LetterL,
+        13: LetterM,
+        14: LetterN,
+        15: LetterO,
+        16: LetterP,
+        17: LetterQ,
+        18: LetterR,
+        19: LetterS,
+        20: LetterT,
+        21: LetterU,
+        22: LetterV,
+        23: LetterW,
+        24: LetterX,
+        25: LetterY,
+        26: LetterZ}
+
+try:
+    import colorama
+except ModuleNotFoundError:
+    mars.Install("colorama")
     # </cmdInit>
 
     #<firstTimeSetup>
 if mars.Setting.FirstTime == "0" or mars.Setting.FirstTime == "":
-    mars.Stream(
-            "\n Welcome! / Witaj! /  Привет!\n Select a language below: / Wybierz język poniżej: / Выберите язык ниже:\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский\n"
-        )
+    mars.Stream("\n%s\n Welcome! / Witaj! /  Привет!\n Select a language below: / Wybierz język poniżej: / Выберите язык ниже:\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский\n" % mars.Lang.StartSC.MarsLogo % ("V"+mars.Setting.VerNum))
     while True:
         ftsAwser = mars.Collect("=> ")
         if ftsAwser.upper() == "EN":
@@ -148,8 +183,9 @@ mars.Stream("[DEBUG INFO]:\n- firstTmUp.ENT: %s\n- usrLangSel1.ENT: %s" % (mars.
 mars.Clear()
     #<classEN>
 if mars.Setting.UserLang == "EN":
-    mars.Stream(" %s\n %s\n\n %s" % (mars.Lang.EN.StartSC.WelcMSG,mars.Lang.EN.StartSC.SubWelcMSG,mars.Lang.EN.StartSC.DscWelcMSG))
+    mars.Stream("%s\n %s\n %s\n\n %s" % (mars.Lang.EN.StartSC.MarsLogo % ("V"+mars.Setting.VerNum),mars.Lang.EN.StartSC.WelcMSG,mars.Lang.EN.StartSC.SubWelcMSG,mars.Lang.EN.StartSC.DscWelcMSG))
 
+    #</preStartPhase>
 selectorAwsNum = -1
 while True:
     while True:
@@ -158,7 +194,7 @@ while True:
             # if selectorAws <= 4:
             #     selectorAwsNum = selectorAws
             #     break
-            if selectorAws == 1:
+            if selectorAws == 1 or selectorAws == 3:
                 selectorAwsNum = selectorAws
                 break
             elif selectorAws >= 2 and selectorAws <= 4:
@@ -173,79 +209,177 @@ while True:
         except ValueError:
             mars.Clear()
             mars.Stream("> %s\n> %s" % (mars.Lang.EN.SelectorSC.WrongAwsValue,mars.Lang.EN.SelectorSC.WrongAwsSub))
+        except KeyboardInterrupt:
+            mars.Stream("<Exitting AWS>")
+            break
     mars.Clear()
     if selectorAwsNum == 1:
-        mapedClass = {
-        1: mars.Lingo.a,
-        2: mars.Lingo.b,
-        3: mars.Lingo.c,
-        4: mars.Lingo.d,
-        5: mars.Lingo.e,
-        6: mars.Lingo.f,
-        7: mars.Lingo.g,
-        8: mars.Lingo.h,
-        9: mars.Lingo.i,
-        10: mars.Lingo.j,
-        11: mars.Lingo.k,
-        12: mars.Lingo.l,
-        13: mars.Lingo.m,
-        14: mars.Lingo.n,
-        15: mars.Lingo.o,
-        16: mars.Lingo.p,
-        17: mars.Lingo.q,
-        18: mars.Lingo.r,
-        19: mars.Lingo.s,
-        20: mars.Lingo.t,
-        21: mars.Lingo.u,
-        22: mars.Lingo.v,
-        23: mars.Lingo.w,
-        24: mars.Lingo.x,
-        25: mars.Lingo.y,
-        26: mars.Lingo.z}
         while True:
             try:
+                mars.Clear()
                 randIndex = random.randint(1,26)
-                selClass = mapedClass[randIndex]
-                # qRight = int(mars.Setting.QuizRight)
-                # qWrong = int(mars.Setting.QuizWrong)
-                mars.Stream("What sound does %s make?" % selClass.Disp)
+                selClass = mars.Lingo.Map[randIndex]
+                mars.Stream("\n%s" % (mars.Lang.EN.QuizSC.CowSaysStart % selClass.Disp))
                 charQuizAws = mars.Collect(" > ")
                 if charQuizAws.upper() == selClass.Sound.upper():
-                    mars.Stream("\n  %s" % (mars.Lang.EN.QuizSC.RightMSG % (selClass.Disp,selClass.Sound)))
-                    # with open(".\\settingsMars.MCFG\\quizRight.ENT", "w") as quizFileR:
-                    #     MathR = qRight + 1
-                    #     WriteToR = str(MathR) 
-                    #     quizFileR.write(WriteToR)
+                    mars.Clear()
+                    mars.Stream("\n%s" % (mars.Lang.EN.QuizSC.CowSaysOK % (selClass.Disp,selClass.Sound)))
                     time.sleep(3.2)
                 elif charQuizAws.upper() != selClass.Sound.upper():
-                    mars.Stream("\n  %s" % (mars.Lang.EN.QuizSC.WrongMSG % (selClass.Disp,selClass.Sound)))
-                    # with open(".\\settingsMars.MCFG\\quizWrong.ENT", "w") as quizFileW:
-                    #     MathW = qWrong + 1
-                    #     WriteToW = str(MathW)
-                    #     quizFileW.write(WriteToW)
-                    #                                            Mars decided to leave these for later, possibly V1
+                    mars.Clear()
+                    mars.Stream("\n%s" % (mars.Lang.EN.QuizSC.CowSaysNo % (selClass.Disp,selClass.Sound)))
                     time.sleep(3.2)
                 else:
                     mars.Stream("\n\n   GENERAL ERROR!! CFGRESTREQ#002")
+                    break
             except KeyboardInterrupt:
-                # print score here
-                # mars.Stream("--Results--\n You got:\n %s right awsers\n wrong awsers" % (mars.Setting.QuizRight,mars.Setting.QuizWrong))
-                mars.Stream("\n\n[Exiting Quiz]")
+                mars.Stream("\n\n<Exiting Quiz>")
                 break
+    elif selectorAwsNum == 3:
+        mars.Clear()
+        mars.Stream("\n %s\n Press [CTRL]+[C] to exit!" % mars.Lang.EN.TransSC.StartMSG)
+        while True:
+            try:
+                
+                transAws = mars.Collect("\n > ")
+                try:
+                    transAws = transAws.lower().replace("f", "ju")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("a", "fa")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("r", "su")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("m", "ra")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("n", "re")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("j", "na")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("e", "je")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("k", "ne")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("b", "fe")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("h", "ke")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("t", "te")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("d", "ja")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("g", "ka")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("s", "ta")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("q", "se")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("p", "sa")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("u", "tu")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("z", "ge")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("v", "za")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("w", "ze")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("x", "zu")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("y", "ga")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("c", "fu")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("i", "ku")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("o", "ru")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("l", "nu")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("natu", "ju")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("tatu", "su")
+                except:
+                    pass
+                try:
+                    transAws = transAws.lower().replace("rje", "re")
+                except:
+                    pass
+                
+                mars.Stream(transAws)
+            except KeyboardInterrupt:
+                mars.Stream("\n\n<Exitting Trans>")
+                break
+        pass
     break
 
 
 
     #</classEN>
+    #
     #<classPL>
 if mars.Setting.UserLang == "PL":
     mars.Stream(" %s" % (mars.Lang.PL.AlphaSC.AlphaMSG))
+    #</preStartPhase>
     #</classPL>
+    #
     #<classRU>
 if mars.Setting.UserLang == "RU":
     mars.Stream(" %s" % (mars.Lang.RU.AlphaSC.AlphaMSG))
+    #</preStartPhase>
     #</classRU>
 
 mars.Collect("<Exitted>")
-
-    #</preStartPhase>
