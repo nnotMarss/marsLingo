@@ -21,6 +21,7 @@ class mars:
             os.system("clear")
 
     class Setting:
+        EventNum = random.randint(100, 999)
         UserLang = open(".\\settingsMars.MCFG\\usrLangSel1.ENT", "r").read()
         FirstTime = open(".\\settingsMars.MCFG\\firstTmUp.ENT", "r").read()
         VerNum = open(".\\settingsMars.MCFG\\verNum.ENT", "r").read()
@@ -140,7 +141,7 @@ except ModuleNotFoundError:
 
     #<firstTimeSetup>
 if mars.Setting.FirstTime == "0" or mars.Setting.FirstTime == "":
-    mars.Stream("\n%s\n Welcome! / Witaj! /  Привет!\n Select a language below: / Wybierz język poniżej: / Выберите язык ниже:\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский\n" % mars.Lang.StartSC.MarsLogo % ("V"+mars.Setting.VerNum))
+    mars.Stream("\n%s\n Welcome! / Witaj! /  Привет!\n Select a language below: / Wybierz język poniżej: / Выберите язык ниже:\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский\n" % mars.Lang.EN.StartSC.MarsLogo % ("V"+mars.Setting.VerNum))
     while True:
         ftsAwser = mars.Collect("=> ")
         if ftsAwser.upper() == "EN":
@@ -151,22 +152,22 @@ if mars.Setting.FirstTime == "0" or mars.Setting.FirstTime == "":
                 ftSetup.write("EN")
                 ftSetup.close()
             break
-        elif ftsAwser.upper() == "PL":
-            with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
-                Lang.write("1")
-                Lang.close()
-            with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
-                ftSetup.write("PL")
-                ftSetup.close()
-            break
-        elif ftsAwser.upper() == "RU":
-            with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
-                Lang.write("1")
-                Lang.close()
-            with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
-                ftSetup.write("RU")
-                ftSetup.close()
-            break
+        # elif ftsAwser.upper() == "PL":
+        #     with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
+        #         Lang.write("1")
+        #         Lang.close()
+        #     with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
+        #         ftSetup.write("PL")
+        #         ftSetup.close()
+        #     break
+        # elif ftsAwser.upper() == "RU":
+        #     with open(".\\settingsMars.MCFG\\firstTmUp.ENT", 'w') as Lang:
+        #         Lang.write("1")
+        #         Lang.close()
+        #     with open(".\\settingsMars.MCFG\\usrLangSel1.ENT", 'w') as ftSetup:
+        #         ftSetup.write("RU")
+        #         ftSetup.close()
+        #     break
         else:
             mars.Clear()
             mars.Stream("\n There's no \"%s\" option! / Nie ma opcji \"%s\"! / Нет \"%s\" варианта!\n \"EN\" - English, \"PL\" - Polski, \"RU\" - Русский" % (ftsAwser, ftsAwser, ftsAwser))

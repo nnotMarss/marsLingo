@@ -1,4 +1,7 @@
 class EN:
+    class Global:
+        MarsName = "terraLingo"
+        MarsLogo = "   __                             .____    .__                       \n _/  |_  _______________________  |    |   |__| ____    ____   ____\n \\   __\\/ __ \\_  __ \\_  __ \\__  \\ |    |   |  |/    \\  / ___\\ /  _ \\\n  |  | \\  ___/|  | \\/|  | \\// __ \\|    |___|  |   |  \\/ /_/  >  <_> )\n  |__|  \\___  >__|   |__|  (____  /_______ \\__|___|  /\\___  / \\____/\n            \\/                  \\/        \\/       \\//_____/         %s"
     class StartSC:
         WelcMSG = "Welcome to TerraLingo!"
         SubWelcMSG = "Here you'll learn how to use Terranian, and how to write & read it's characters! Easy!"
