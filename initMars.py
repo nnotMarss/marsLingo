@@ -5,6 +5,7 @@ import time
 
 class mars:
     import langMars as Lang
+    import langMars2 as Lang2
     Stream = print
     Collect = input
 
@@ -13,6 +14,16 @@ class mars:
             import module
         except ModuleNotFoundError:
             os.system("py -m pip install %s" % module)
+
+    try:
+        import PySimpleGUI as Gui
+    except ModuleNotFoundError:
+        Install("PySimpleGUI")
+    # try:
+    #     import PySimpleGUIWeb as WebGui
+    #     import Remi
+    # except ModuleNotFoundError:
+    #     Install("PySimpleGUIWeb")
 
     def Clear():
         if os.name == "nt":
