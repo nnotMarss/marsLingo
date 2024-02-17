@@ -14,4 +14,4 @@ UHM.. maybe?!?!?
 ---
 ![Python Powered!](https://www.python.org/static/community_logos/python-powered-w-100x40.png)
 ---
- **©️ marsLabs (Previously fuzLabs) 2023**
+ **©️ nnotMarss 2023**
