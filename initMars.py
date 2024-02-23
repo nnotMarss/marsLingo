@@ -16,14 +16,9 @@ class mars:
             os.system("py -m pip install %s" % module)
 
     try:
-        import PySimpleGUI as Gui
+        import pytermgui as Gui
     except ModuleNotFoundError:
-        Install("PySimpleGUI")
-    # try:
-    #     import PySimpleGUIWeb as WebGui
-    #     import Remi
-    # except ModuleNotFoundError:
-    #     Install("PySimpleGUIWeb")
+        Install("pytermgui")
 
     def Clear():
         if os.name == "nt":
